@@ -92,6 +92,25 @@ public class TicTacToeGame {
                     mBoard[i+6] == computerPlayer)
                 return 3;
         }
-        
+        if ((mBoard[0] == humanPlayer &&
+                mBoard[4] == humanPlayer &&
+                mBoard[8] == humanPlayer) ||
+                mBoard[2] == humanPlayer &&
+                mBoard[4] == humanPlayer&&
+                mBoard[6] == humanPlayer)
+            return 2;
+        if ((mBoard[0] == computerPlayer &&
+                mBoard[4] == computerPlayer &&
+                mBoard[8] == computerPlayer) ||
+                mBoard[2] == computerPlayer &&
+                mBoard[4] == computerPlayer &&
+                mBoard[6] == computerPlayer)
+            return 3;
+
+        for (int i = 0; i < getBoardSize(); i++) {
+            if (mBoard[i] != humanPlayer && mBoard[i] != computerPlayer)
+                return 0;
+        }
+        return 1;
     }
 }
