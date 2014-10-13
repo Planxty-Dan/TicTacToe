@@ -129,9 +129,9 @@ public class MainActivity extends Activity {
         mGame.clearBoard();
 
         for (int i = 0; i < mBoardButtons.length; i++) {
-            mBoardButtons[i].setText(" ");
             mBoardButtons[i].setEnabled(true);
             mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
+            mBoardButtons[i].setBackground(getResources().getDrawable(R.drawable.blank));
         }
 
         if (mHumanFirst) {
@@ -151,11 +151,16 @@ public class MainActivity extends Activity {
     private void setMove(char player, int location) {
         mGame.setMove(player, location);
         mBoardButtons[location].setEnabled(false);
-        mBoardButtons[location].setText(String.valueOf(player));
-        if (player == mGame.humanPlayer)
-            mBoardButtons[location].setTextColor(Color.GREEN);
-        else
-            mBoardButtons[location].setTextColor(Color.RED);
+
+        if (player == mGame.humanPlayer) {
+            //mBoardButtons[location].setTextColor(Color.GREEN);
+            mBoardButtons[location].setBackground(getResources().getDrawable(R.drawable.x));
+
+        }
+        else {
+            //mBoardButtons[location].setTextColor(Color.RED);
+            mBoardButtons[location].setBackground(getResources().getDrawable(R.drawable.o));
+        }
     }
 
 }
