@@ -22,6 +22,7 @@
     <string name="human">Human:  </string>
     <string name="ties">Ties:  </string>
     <string name="android">Android:  </string>
+    <string name="newGame_button">New Game</string>
     <string name="contact_heading">Contact Info</string>
     <string name="contact_info">
         <b>Name: </b> Dan
@@ -35,5 +36,6 @@
     </string>
     <string name="newGame_label">New Game</string>
     <string name="exitGame_label">Exit Game</string>
+
 
 </resources>

@@ -172,4 +172,17 @@
 
     </TableLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <Button
+        android:id="@+id/new_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="@string/newGame_button"
+        android:textColor="@color/Light_Grey"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>

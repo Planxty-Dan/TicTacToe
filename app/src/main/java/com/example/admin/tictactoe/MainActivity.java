@@ -1,6 +1,7 @@
 package com.example.admin.tictactoe;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +17,7 @@ public class MainActivity extends Activity {
     private TicTacToeGame mGame;
 
     private Button mBoardButtons[];
+    private Button mNewGameButton;
 
     private TextView mInfoTextView;
     private TextView mHumanCount;
@@ -45,10 +47,15 @@ public class MainActivity extends Activity {
         mBoardButtons[7] = (Button) findViewById(R.id.eight);
         mBoardButtons[8] = (Button) findViewById(R.id.nine);
 
+        Button mNewGameButton = (Button) findViewById(R.id.new_game);
+        mNewGameButton.setOnClickListener(mNewGameButtonListener);
         mInfoTextView = (TextView) findViewById(R.id.information);
         mHumanCount = (TextView) findViewById(R.id.humanCount);
+        mHumanCount.setTextColor(getResources().getColor(R.color.Green));
         mTieCount = (TextView) findViewById(R.id.tiesCount);
+        mTieCount.setTextColor(getResources().getColor(R.color.Green));
         mAndroidCount = (TextView) findViewById(R.id.androidCount);
+        mAndroidCount.setTextColor(getResources().getColor(R.color.Green));
 
         mHumanCount.setText(Integer.toString(mHumanCounter));
         mTieCount.setText(Integer.toString(mTieCounter));
@@ -60,6 +67,12 @@ public class MainActivity extends Activity {
 
     }
 
+    private View.OnClickListener mNewGameButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            startNewGame();
+        }
+    };
+
     private class ButtonClickListener implements View.OnClickListener {
         int location;
 
@@ -68,6 +81,7 @@ public class MainActivity extends Activity {
         }
 
         public void onClick(View view) {
+
             if (!mGameOver) {
                 if (mBoardButtons[location].isEnabled()) {
                     setMove(mGame.humanPlayer, location);
